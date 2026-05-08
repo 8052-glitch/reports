@@ -1,1 +1,156 @@
-﻿<html><body><h1>GitHub Pages Test</h1><p>推送测试 - 05/08/2026 15:41:48</p></body></html>
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIHelp 客诉报告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f0f4f8;--card:#fff;--t:#1a2332;--t2:#5a6a7e;--t3:#9aa8b8;
+  --bd:#e2e9f0;--r:16px;
+  --red:#e53e3e;--rb:#fff5f5;--orange:#ed8936;--ob:#fffaf0;
+  --green:#38a169;--gb:#f0fff4;--blue:#3182ce;--bb:#ebf4ff;
+}
+body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--t);padding:28px 18px;font-size:14px}
+.wrap{max-width:1000px;margin:0 auto}
+
+/* 标题 */
+.title{text-align:center;font-size:28px;font-weight:800;letter-spacing:5px;
+  background:linear-gradient(135deg,#e53e3e,#ed8936,#38a169);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.time{text-align:center;color:var(--t3);font-size:12px;margin-bottom:20px}
+
+/* 统计条 */
+.stats{display:flex;justify-content:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.stag{padding:12px 28px;border-radius:32px;font-size:15px;font-weight:800;
+  border:2px solid transparent;letter-spacing:.5px;transition:transform .2s}
+.stag:hover{transform:translateY(-1px)}
+.sn{background:var(--rb);color:var(--red);border-color:#fed7d7}
+.sw{background:var(--ob);color:var(--orange);border-color:#feebc8}
+.sd{background:var(--gb);color:var(--green);border-color:#c6f6d5}
+.st{background:var(--bb);color:var(--blue);border-color:#bee3f8}
+
+/* 队列卡片 */
+.section-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--t3);text-align:center;margin-bottom:14px}
+.qc{background:var(--card);border-radius:var(--r);
+  box-shadow:0 2px 12px rgba(0,0,0,.05);border:1px solid var(--bd);margin-bottom:12px;
+  overflow:hidden;transition:all .25s}
+.qc:hover{box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.qh{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;cursor:pointer;user-select:none}
+.qh:hover{background:#fafbfc}
+.qc.open .qh{border-bottom:1px solid var(--bd)}
+.qt{font-weight:700;font-size:16px;display:flex;align-items:center;gap:10px}
+.badges{display:flex;gap:8px}
+.badge{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;
+  cursor:pointer;border:1.5px solid transparent;transition:all .2s;white-space:nowrap}
+.badge:hover{transform:scale(1.06)}
+.bn{background:var(--rb);color:var(--red);border-color:#fed7d7}.bn.active{background:var(--red);color:#fff}
+.bw{background:var(--ob);color:var(--orange);border-color:#feebc8}.bw.active{background:var(--orange);color:#fff}
+.bd{background:var(--gb);color:var(--green);border-color:#c6f6d5}.bd.active{background:var(--green);color:#fff}
+
+/* 内容区 */
+.qb{display:none;padding:8px 0 14px}
+.qc.open .qb{display:block}
+.tab{display:none}.tab.active{display:block}
+.sub{padding:10px 22px 8px;font-size:11px;font-weight:700;letter-spacing:1px;
+  color:var(--t3);text-transform:uppercase;border-bottom:1px solid #f7f9fb}
+
+/* 客诉项 */
+.row{display:flex;align-items:baseline;gap:14px;padding:11px 22px;
+  border-bottom:1px solid #f8fafc;transition:background .12s}
+.row:last-child{border-bottom:none}
+.row:hover{background:#fcfdfd}
+.sid{font-family:'SF Mono',Consolas,monospace;font-size:11px;color:var(--t2);
+  background:#f1f5f9;padding:3px 10px;border-radius:6px;min-width:72px;
+  font-weight:600;letter-spacing:.5px}
+.sum{color:var(--t);font-size:13px;line-height:1.55}
+
+/* 分类统计标签（已解决tab内 —— 小胶囊居中，上名下数） */
+.cats{display:flex;flex-wrap:wrap;gap:8px;padding:14px 22px 6px;justify-content:center}
+.cat{display:inline-flex;flex-direction:column;align-items:center;gap:1px;padding:4px 13px;
+  border-radius:99px;font-size:10px;font-weight:700;white-space:nowrap;
+  transition:transform .15s;line-height:1.4}
+.cat:hover{transform:scale(1.06)}
+.cat.cp{background:#ede9fe;color:#7c3aed;border:1px solid #ddd6fe}
+.cat.lg{background:#cffafe;color:#0891b2;border:1px solid #a5f3fc}
+.cat.bg{background:#fef3c7;color:#b45309;border:1px solid #fde68a}
+.cat.ot{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
+.cat.ac{background:#fee2e2;color:#dc2626;border:1px solid #fecaca}
+.cat.cd{background:#d1fae5;color:#059669;border:1px solid #a7f3d0}
+.cat.ev{background:#dbeafe;color:#2563eb;border:1px solid #bfdbfe}
+.cat.sg{background:#fce7f3;color:#db2777;border:1px solid #fbcfe8}
+.cat.gp{background:#fef3c7;color:#b45309;border:1px solid #fde68a}
+
+/* 分类分组（新客诉/待回复tab） */
+.cat-group{border-bottom:1px solid #f8fafc}
+.cat-group:last-child{border-bottom:none}
+.cat-header{display:flex;align-items:center;gap:10px;padding:10px 22px 6px;
+  cursor:pointer;user-select:none;transition:background .12s;border-radius:8px;margin:2px 0}
+.cat-header:hover{background:#f7f9fb}
+.cat-dot{width:8px;height:8px;border-radius:50%;background:var(--t3);flex-shrink:0;
+  transition:transform .2s}
+.cg-open .cat-dot{transform:rotate(90deg)}
+.cat-count{font-size:11px;font-weight:600;color:var(--t3);margin-left:auto}
+.cat-body{display:none;padding:4px 22px 8px}
+.cg-open .cat-body{display:block}
+.cl{font-size:10px;font-weight:600;line-height:1.35}
+.cn{font-size:12px;font-weight:800;line-height:1.25}
+
+/* 行内分类标签 —— 小圆胶囊，横排平铺 */
+.ctag{display:inline-flex;align-items:center;padding:1px 9px;border-radius:99px;font-size:10px;font-weight:600;
+  white-space:nowrap;flex-shrink:0;line-height:18px;letter-spacing:.3px}
+.ctag.cp{background:#ede9fe;color:#7c3aed;border:1px solid #ddd6fe}
+.ctag.lg{background:#cffafe;color:#0891b2;border:1px solid #a5f3fc}
+.ctag.bg{background:#fef3c7;color:#b45309;border:1px solid #fde68a}
+.ctag.ot{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
+.ctag.ac{background:#fee2e2;color:#dc2626;border:1px solid #fecaca}
+.ctag.cd{background:#d1fae5;color:#059669;border:1px solid #a7f3d0}
+.ctag.ev{background:#dbeafe;color:#2563eb;border:1px solid #bfdbfe}
+.ctag.sg{background:#fce7f3;color:#db2777;border:1px solid #fbcfe8}
+.ctag.gp{background:#fef3c7;color:#b45309;border:1px solid #fde68a}
+
+.empty{padding:16px 22px;color:var(--t3);font-style:italic;font-size:13px}
+.footer{text-align:center;color:var(--t3);font-size:11px;margin-top:30px;padding-bottom:10px}
+</style></head>
+<body><div class="wrap">
+<div class="title">AIHelp 客诉报告</div>
+<div class="time">生成于 2026-05-08 16:26</div>
+<div class="stats">
+  <span class="stag sn">新客诉 1</span>
+  <span class="stag sw">待回复 0</span>
+  <span class="stag sd">已解决 48</span>
+  <span class="stag st">合计 49 条</span>
+</div>
+<div class="section-title">按 队 列 查 看</div>
+<div class="qc"><div class="qh"><div class="qt">上古咒术亚太</div><div class="badges"><span class="badge bn" data-tab="new">新 1</span><span class="badge bd" data-tab="done">已解决 15</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="cat-group">  <div class="cat-header" onclick="this.parentElement.classList.toggle('cg-open')"><span class="cat-dot"></span><span class="ctag cot">其他咨询</span><span class="cat-count">1条</span></div>  <div class="cat-body"><div class="row"><span class="sid">U8YBUR</span><span class="sum">用户自称ACCN团队，声称将在24小时内对游戏服务器进行DDoS攻击，要求联系负责人并解除攻击，但未提出具体游戏相关问题或请求帮助</span></div>  </div></div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="cats"><div class="cat bg"><div class="cl">BUG反馈</div><div class="cn">2</div></div><div class="cat sg"><div class="cl">建议反馈</div><div class="cn">3</div></div><div class="cat ot"><div class="cl">其他咨询</div><div class="cn">10</div></div></div></div></div></div><div class="qc"><div class="qh"><div class="qt">上古咒术欧美</div><div class="badges"><span class="badge bd" data-tab="done">已解决 3</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="empty">暂无</div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="cats"><div class="cat cp"><div class="cl">充值问题</div><div class="cn">1</div></div><div class="cat sg"><div class="cl">建议反馈</div><div class="cn">1</div></div><div class="cat ot"><div class="cl">其他咨询</div><div class="cn">1</div></div></div></div></div></div><div class="qc"><div class="qh"><div class="qt">影子战争欧美</div><div class="badges"><span class="badge bd" data-tab="done">已解决 7</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="empty">暂无</div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="cats"><div class="cat cp"><div class="cl">充值问题</div><div class="cn">1</div></div><div class="cat ac"><div class="cl">账号问题</div><div class="cn">1</div></div><div class="cat sg"><div class="cl">建议反馈</div><div class="cn">1</div></div><div class="cat gp"><div class="cl">玩法问题</div><div class="cn">1</div></div><div class="cat ot"><div class="cl">其他咨询</div><div class="cn">3</div></div></div></div></div></div><div class="qc"><div class="qh"><div class="qt">默认队列</div><div class="badges"><span class="badge bd" data-tab="done">已解决 23</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="empty">暂无</div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="cats"><div class="cat cp"><div class="cl">充值问题</div><div class="cn">1</div></div><div class="cat bg"><div class="cl">BUG反馈</div><div class="cn">2</div></div><div class="cat ac"><div class="cl">账号问题</div><div class="cn">1</div></div><div class="cat sg"><div class="cl">建议反馈</div><div class="cn">1</div></div><div class="cat ot"><div class="cl">物品咨询</div><div class="cn">1</div></div></div></div></div></div>
+<div class="footer">AIHelp 客诉数据 · 自动生成</div>
+</div><script>
+(function(){
+  var cards=document.querySelectorAll('.qc');
+  cards.forEach(function(c){
+    c.querySelector('.qh').addEventListener('click',function(e){
+      if(e.target.closest('.badge'))return;
+      var o=c.classList.contains('open');
+      cards.forEach(function(x){x.classList.remove('open')});
+      if(!o)c.classList.add('open')
+    });
+    c.querySelectorAll('.badge').forEach(function(b){
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        var tab=b.dataset.tab;
+        c.querySelectorAll('.badge').forEach(function(x){x.classList.remove('active')});
+        b.classList.add('active');
+        c.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+        c.querySelector('.tab[data-tab="'+tab+'"]').classList.add('active');
+        cards.forEach(function(x){x.classList.remove('open')});
+        c.classList.add('open');
+        // 自动展开所有分类组
+        c.querySelectorAll('.cat-group').forEach(function(g){g.classList.add('cg-open')});
+      })
+    });
+    // 点击分类标签也切换折叠
+    c.querySelectorAll('.cat-header').forEach(function(h){
+      h.addEventListener('click',function(){})
+    });
+  });
+})();
+</script></body></html>
