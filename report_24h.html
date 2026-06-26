@@ -1,8 +1,7 @@
 <!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AIHelp 客诉报告</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+<style>*{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#f0f4f8;--card:#fff;--t:#1a2332;--t2:#5a6a7e;--t3:#9aa8b8;
   --bd:#e2e9f0;--r:16px;
@@ -12,13 +11,13 @@
 body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--t);padding:28px 18px;font-size:14px}
 .wrap{max-width:1000px;margin:0 auto}
 
-/* 标题 */
+/* 鏍囬 */
 .title{text-align:center;font-size:28px;font-weight:800;letter-spacing:5px;
   background:linear-gradient(135deg,#e53e3e,#ed8936,#38a169);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .time{text-align:center;color:var(--t3);font-size:12px;margin-bottom:20px}
 
-/* 统计条 */
+/* 缁熻鏉?*/
 .stats{display:flex;justify-content:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
 .stag{padding:12px 28px;border-radius:32px;font-size:15px;font-weight:800;
   border:2px solid transparent;letter-spacing:.5px;transition:transform .2s}
@@ -28,7 +27,7 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
 .sd{background:var(--gb);color:var(--green);border-color:#c6f6d5}
 .st{background:var(--bb);color:var(--blue);border-color:#bee3f8}
 
-/* 队列卡片 */
+/* 闃熷垪鍗＄墖 */
 .section-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   color:var(--t3);text-align:center;margin-bottom:14px}
 .qc{background:var(--card);border-radius:var(--r);
@@ -47,14 +46,14 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
 .bw{background:var(--ob);color:var(--orange);border-color:#feebc8}.bw.active{background:var(--orange);color:#fff}
 .bd{background:var(--gb);color:var(--green);border-color:#c6f6d5}.bd.active{background:var(--green);color:#fff}
 
-/* 内容区 */
+/* 鍐呭鍖?*/
 .qb{display:none;padding:8px 0 14px}
 .qc.open .qb{display:block}
 .tab{display:none}.tab.active{display:block}
 .sub{padding:10px 22px 8px;font-size:11px;font-weight:700;letter-spacing:1px;
   color:var(--t3);text-transform:uppercase;border-bottom:1px solid #f7f9fb}
 
-/* 客诉项 */
+/* 瀹㈣瘔椤?*/
 .row{display:flex;align-items:baseline;gap:14px;padding:11px 22px;
   border-bottom:1px solid #f8fafc;transition:background .12s}
 .row:last-child{border-bottom:none}
@@ -64,7 +63,7 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
   font-weight:600;letter-spacing:.5px}
 .sum{color:var(--t);font-size:13px;line-height:1.55}
 
-/* 分类统计标签（已解决tab内 —— 小胶囊居中，上名下数） */
+/* 鍒嗙被缁熻鏍囩锛堝凡瑙ｅ喅tab鍐?鈥斺€?灏忚兌鍥婂眳涓紝涓婂悕涓嬫暟锛?*/
 .cats{display:flex;flex-wrap:wrap;gap:8px;padding:14px 22px 6px;justify-content:center}
 .cat{display:inline-flex;flex-direction:column;align-items:center;gap:1px;padding:4px 13px;
   border-radius:99px;font-size:10px;font-weight:700;white-space:nowrap;
@@ -80,7 +79,7 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
 .cat.sg{background:#fce7f3;color:#db2777;border:1px solid #fbcfe8}
 .cat.gp{background:#fef3c7;color:#b45309;border:1px solid #fde68a}
 
-/* 分类分组（新客诉/待回复tab） */
+/* 鍒嗙被鍒嗙粍锛堟柊瀹㈣瘔/寰呭洖澶峵ab锛?*/
 .cat-group{border-bottom:1px solid #f8fafc}
 .cat-group:last-child{border-bottom:none}
 .cat-header{display:flex;align-items:center;gap:10px;padding:10px 22px 6px;
@@ -95,17 +94,17 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
 .cl{font-size:10px;font-weight:600;line-height:1.35}
 .cn{font-size:12px;font-weight:800;line-height:1.25}
 
-/* 行内分类标签 —— 6类6色 */
+/* 琛屽唴鍒嗙被鏍囩 鈥斺€?6绫?鑹?*/
 .ctag{display:inline-flex;align-items:center;padding:1px 9px;border-radius:99px;font-size:10px;font-weight:600;
   white-space:nowrap;flex-shrink:0;line-height:18px;letter-spacing:.3px}
-.ctag.lg{background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe}  /* 登录-蓝 */
-.ctag.ac{background:#fee2e2;color:#dc2626;border:1px solid #fecaca}  /* 账号-红 */
-.ctag.cp{background:#fef3c7;color:#d97706;border:1px solid #fde68a}  /* 充值-琥珀 */
-.ctag.bg{background:#fee2e2;color:#e11d48;border:1px solid #fecdd3}  /* BUG-玫红 */
-.ctag.ev{background:#d1fae5;color:#059669;border:1px solid #a7f3d0}  /* 意见-绿 */
-.ctag.ot{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}  /* 其他-灰 */
+.ctag.lg{background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe}  /* 鐧诲綍-钃?*/
+.ctag.ac{background:#fee2e2;color:#dc2626;border:1px solid #fecaca}  /* 璐﹀彿-绾?*/
+.ctag.cp{background:#fef3c7;color:#d97706;border:1px solid #fde68a}  /* 鍏呭€?鐞ョ弨 */
+.ctag.bg{background:#fee2e2;color:#e11d48;border:1px solid #fecdd3}  /* BUG-鐜孩 */
+.ctag.ev{background:#d1fae5;color:#059669;border:1px solid #a7f3d0}  /* 鎰忚-缁?*/
+.ctag.ot{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}  /* 鍏朵粬-鐏?*/
 
-/* 已解决 tab：分类统计（badge 风格 + 6色配色） */
+/* 宸茶В鍐?tab锛氬垎绫荤粺璁★紙badge 椋庢牸 + 6鑹查厤鑹诧級 */
 .done-stats{display:flex;flex-wrap:wrap;gap:8px;padding:10px 22px 14px}
 .done-stats .badge{cursor:default;font-size:12px;padding:5px 14px;border-radius:20px;
   font-weight:700;border:1.5px solid;white-space:nowrap}
@@ -119,10 +118,8 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
 
 .empty{padding:16px 22px;color:var(--t3);font-style:italic;font-size:13px}
 .footer{text-align:center;color:var(--t3);font-size:11px;margin-top:30px;padding-bottom:10px}
-
-/* Discord 社区动态 */
-.dc-time{color:#999;font-size:12px;margin-bottom:12px}
-.dc-guild{background:#f8f9fa;border-radius:8px;padding:12px 14px;margin-bottom:10px}
+/* Discord community */
+.dc-guild{background:#f5f7fa;border-radius:8px;padding:10px 14px;margin-bottom:10px}
 .dc-gname{font-weight:700;font-size:14px;color:#333;margin-bottom:4px}
 .dc-chats{color:#888;font-size:12px;margin-bottom:6px}
 .dc-ch{margin:4px 0}
@@ -130,12 +127,11 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
 .dc-msg{padding:2px 0 2px 12px;border-left:2px solid #e0e0e0;margin:1px 0;font-size:12px;line-height:1.4}
 .dc-ts{color:#aaa;font-size:11px}
 .dc-author{color:#586069;font-weight:600}
-.dc-text{color:#333}
-
-</style></head>
+.dc-text{color:#333}</style></head>
 <body><div class="wrap">
 <div class="title">AIHelp 客诉报告</div>
-<div class="time">生成于 2026-06-26 14:28</div>
+<div class="time">生成于 2026-06-26 15:29</div>
+
 <div class="stats">
   <span class="stag sn">新客诉 1</span>
   <span class="stag sw">待回复 1</span>
@@ -143,18 +139,16 @@ body{font-family:'Inter',-apple-system,'PingFang SC',sans-serif;background:var(-
   <span class="stag st">合计 16 条</span>
 </div>
 <div class="section-title">按 队 列 查 看</div>
-<div class="qc"><div class="qh"><div class="qt">上古咒术亚太</div><div class="badges"><span class="badge bn" data-tab="new">新 1</span><span class="badge bd" data-tab="done">已解决 2</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="cat-group">  <div class="cat-header" onclick="this.parentElement.classList.toggle('cg-open')"><span class="cat-dot"></span><span class="ctag cbg">BUG反馈</span><span class="cat-count">1条</span></div>  <div class="cat-body"><div class="row"><span class="sid">UWN5KW</span><span class="sum">用户反馈船只大赛活动进度显示异常，延续上次活动累计进度，询问是否正常</span></div>  </div></div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="done-stats"><span class="badge dot">其他咨询 1</span><span class="badge dev">意见提交 1</span></div></div></div></div><div class="qc"><div class="qh"><div class="qt">影子战争欧美</div><div class="badges"><span class="badge bw" data-tab="wait">待回复 1</span><span class="badge bd" data-tab="done">已解决 2</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="empty">暂无</div></div><div class="tab" data-tab="wait"><div class="cat-group">  <div class="cat-header" onclick="this.parentElement.classList.toggle('cg-open')"><span class="cat-dot"></span><span class="ctag cbg">BUG反馈</span><span class="cat-count">1条</span></div>  <div class="cat-body"><div class="row"><span class="sid">UWYS3B</span><span class="sum">用户反馈游戏更新导致英雄碎片位置互换误选，客服提交后开发团队拒绝替换已领取碎片，用户不满要求补偿</span></div>  </div></div></div><div class="tab" data-tab="done"><div class="done-stats"><span class="badge dlg">登录问题 1</span><span class="badge dev">意见提交 1</span></div></div></div></div><div class="qc"><div class="qh"><div class="qt">默认队列</div><div class="badges"><span class="badge bd" data-tab="done">已解决 10</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="empty">暂无</div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="done-stats"><span class="badge dot">其他咨询 4</span><span class="badge dev">意见提交 1</span><span class="badge dlg">登录问题 3</span><span class="badge dbg">BUG反馈 2</span></div></div></div></div>
-<div class="section-title">Discord 社区动态</div>
-<div class="dc-time">抓取于 2026-06-26 14:32</div>
-<div class="dc-guild">
-<div class="dc-gname">APP客诉</div>
-<div class="dc-chats">playrole-support(7条), share-chat(1条) · 4人 · 共8条</div><div class="dc-ch"><div class="dc-chname">#playrole-support</div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:50]</span> <span class="dc-author">loretta8019:</span> <span class="dc-text">Hello?</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:36]</span> <span class="dc-author">knight088654:</span> <span class="dc-text">Hello????</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:15]</span> <span class="dc-author">anniebot_rr:</span> <span class="dc-text"><@804272966229688342> Thank you kindly for your quick response!! 😁</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:14]</span> <span class="dc-author">loretta8019:</span> <span class="dc-text">🤔</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:14]</span> <span class="dc-author">loretta8019:</span> <span class="dc-text">You can safely delete the old app. Your sub is on the new one now. 👍</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T22:08]</span> <span class="dc-author">knight088654:</span> <span class="dc-text">Hello??</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T16:27]</span> <span class="dc-author">anniebot_rr:</span> <span class="dc-text"><@804272966229688342> I have a question. Now that I'm using the new app, I was g...</span></div></div><div class="dc-ch"><div class="dc-chname">#share-chat</div><div class="dc-msg"><span class="dc-ts">[2026-06-26T04:27]</span> <span class="dc-author">bangkeskak7012:</span> <span class="dc-text">Hello... 
-Anyone know best website for face swap?</span></div></div></div><div class="dc-guild">
-<div class="dc-gname">影子战争-欧美</div>
-<div class="dc-chats">chat(28条) · 10人 · 共28条</div><div class="dc-ch"><div class="dc-chname">#chat</div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:20]</span> <span class="dc-author">etmong:</span> <span class="dc-text">You attacked me and drove me out of all the mines, even though I hadn't attacked...</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:16]</span> <span class="dc-author">baks5157:</span> <span class="dc-text">It's starting to get annoying.</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:15]</span> <span class="dc-author">baks5157:</span> <span class="dc-text">How many time you will be waiting to restart and before attacking me on mine</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:05]</span> <span class="dc-author">etmong:</span> <span class="dc-text">What happens???</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T11:46]</span> <span class="dc-author">nick879.:</span> <span class="dc-text"></span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T10:13]</span> <span class="dc-author">balziva:</span> <span class="dc-text"><@1494374077266137269></span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T07:58]</span> <span class="dc-author">marvelino_:</span> <span class="dc-text">When update ready?</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T07:30]</span> <span class="dc-author">_dh.4_44620:</span> <span class="dc-text"></span></div></div></div>
-<div class="footer">AIHelp 客诉数据 · 自动生成</div>
-</div><script>
-(function(){
+<div class="qc"><div class="qh"><div class="qt">上古咒术亚太</div><div class="badges"><span class="badge bn">新 1</span><span class="badge bd">已解决 2</span></div></div><div class="qb"><div class="tab active" data-tab="new"><div class="cat-group cg-open"><div class="cat-header" onclick="this.parentElement.classList.toggle('cg-open')"><span class="cat-dot"></span><span class="ctag cot">其他咨询</span><span class="cat-count">1条</span></div><div class="cat-body"><div class="row"><span class="sid">UWN5KW</span><span class="sum">[用户]불만족 | [用户]보트대회가 저번에 했던 진행도 그대로 누적으로 이번에 진행하고있어요ㅡㅡ | [用户]아니 이번 보트대회 이벤트 진행도가 오류 났어요 | [用户]저번 이벤트에 이어서 진행도가 이어가고 있는데 어</span></div></div></div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="done-stats"><span class="badge dot">其他咨询 2</span></div></div></div></div><div class="qc"><div class="qh"><div class="qt">影子战争欧美</div><div class="badges"><span class="badge bw">待回复 1</span><span class="badge bd">已解决 2</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="empty">暂无</div></div><div class="tab active" data-tab="wait"><div class="cat-group cg-open"><div class="cat-header" onclick="this.parentElement.classList.toggle('cg-open')"><span class="cat-dot"></span><span class="ctag cot">其他咨询</span><span class="cat-count">1条</span></div><div class="cat-body"><div class="row"><span class="sid">UWYS3B</span><span class="sum">[用户]Hello Support Team,
+
+I encountered an issue in the game.
+
+Before updating the game, I opened a character shard and s</span></div></div></div></div><div class="tab" data-tab="done"><div class="done-stats"><span class="badge dot">其他咨询 2</span></div></div></div></div><div class="qc"><div class="qh"><div class="qt">默认队列</div><div class="badges"><span class="badge bd">已解决 10</span></div></div><div class="qb"><div class="tab" data-tab="new"><div class="empty">暂无</div></div><div class="tab" data-tab="wait"><div class="empty">暂无</div></div><div class="tab" data-tab="done"><div class="done-stats"><span class="badge dot">其他咨询 10</span></div></div></div></div>
+
+<div class='section-title'>Discord 社区动态</div><div class="dc-guild"><div class="dc-gname">APP客诉</div><div class="dc-chats">playrole-support(7条), share-chat(1条) · 4人 · 共8条</div><div class="dc-ch"><div class="dc-chname">#playrole-support</div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:50]</span> <span class="dc-author">loretta8019:</span> <span class="dc-text">Hello?</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:36]</span> <span class="dc-author">knight088654:</span> <span class="dc-text">Hello????</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:15]</span> <span class="dc-author">anniebot_rr:</span> <span class="dc-text">&lt;@804272966229688342&gt; Thank you kindly for your quick response!! 😁</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:14]</span> <span class="dc-author">loretta8019:</span> <span class="dc-text">🤔</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-26T01:14]</span> <span class="dc-author">loretta8019:</span> <span class="dc-text">You can safely delete the old app. Your sub is on the new one now. 👍</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T22:08]</span> <span class="dc-author">knight088654:</span> <span class="dc-text">Hello??</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T16:27]</span> <span class="dc-author">anniebot_rr:</span> <span class="dc-text">&lt;@804272966229688342&gt; I have a question. Now that I'm using the new app, I was g...</span></div></div><div class="dc-ch"><div class="dc-chname">#share-chat</div><div class="dc-msg"><span class="dc-ts">[2026-06-26T04:27]</span> <span class="dc-author">bangkeskak7012:</span> <span class="dc-text">Hello... 
+Anyone know best website for face swap?</span></div></div></div><div class="dc-guild"><div class="dc-gname">上古咒术-亚太</div><div class="dc-chats">无新消息</div></div><div class="dc-guild"><div class="dc-gname">上古咒术-欧美</div><div class="dc-chats">无新消息</div></div><div class="dc-guild"><div class="dc-gname">影子战争-欧美</div><div class="dc-chats">chat(28条) · 10人 · 共28条</div><div class="dc-ch"><div class="dc-chname">#chat</div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:20]</span> <span class="dc-author">etmong:</span> <span class="dc-text">You attacked me and drove me out of all the mines, even though I hadn't attacked...</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:16]</span> <span class="dc-author">baks5157:</span> <span class="dc-text">It's starting to get annoying.</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:15]</span> <span class="dc-author">baks5157:</span> <span class="dc-text">How many time you will be waiting to restart and before attacking me on mine</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T12:05]</span> <span class="dc-author">etmong:</span> <span class="dc-text">What happens???</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T11:46]</span> <span class="dc-author">nick879.:</span> <span class="dc-text"></span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T10:13]</span> <span class="dc-author">balziva:</span> <span class="dc-text">&lt;@1494374077266137269&gt;</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T07:58]</span> <span class="dc-author">marvelino_:</span> <span class="dc-text">When update ready?</span></div><div class="dc-msg"><span class="dc-ts">[2026-06-25T07:30]</span> <span class="dc-author">_dh.4_44620:</span> <span class="dc-text"></span></div></div></div>
+<div class="footer">AIHelp 客诉数据 · Discord 社区监控 · 自动生成</div>
+</div><script>(function(){
   var cards=document.querySelectorAll('.qc');
   cards.forEach(function(c){
     c.querySelector('.qh').addEventListener('click',function(e){
@@ -182,5 +176,4 @@ Anyone know best website for face swap?</span></div></div></div><div class="dc-g
       h.addEventListener('click',function(){})
     });
   });
-})();
-</script></body></html>
+})();</script></body></html>
